@@ -7,11 +7,30 @@
     <title>Movie</title>
 </head>
 <body>
-    <h2>Movie Details</h2>
-    <p>Movie ID: @Model.Id</p>
-    <p>Movie Name: @Model.Name</p>
-    <p>Rating: @Model.Rating</p>
-    <p>Release Year: @Model.ReleaseYear</p>
-    <p>Genre: @Model.Genre</p>
+    <table border="1" class="detail-table">
+        <thead></thead>
+        <tbody>
+            <tr>
+                <td rowspan="5" style="vertical-align: middle;">
+                    @if (!string.IsNullOrEmpty(Model.ImagePath))
+                    {
+                        <img src="@Model.ImagePath" alt="Harry Potter" class="custom-image" />
+                    }
+                </td>
+                <td>Movie ID: @Model.Id</td>
+            </tr>
+            <tr><td>Movie Name: @Model.Name</td></tr>
+            <tr><td>Rating: @Model.Rating</td></tr>
+            <tr><td>Release Year: @Model.ReleaseYear</td></tr>
+            <tr><td>Genre: @Model.Genre</td></tr>
+        </tbody>
+    </table>
+    <br>
+    <h3>Watch Here</h3>
+
+    @if (!string.IsNullOrEmpty(Model.VideoPath))
+    {
+        <iframe width="1300" height="665" src="@Model.VideoPath" frameborder="0" allowfullscreen></iframe>
+    }
 </body>
 </html>
