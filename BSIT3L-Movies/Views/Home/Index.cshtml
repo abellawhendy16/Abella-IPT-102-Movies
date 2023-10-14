@@ -5,14 +5,14 @@
 }
 
 
-<table>
+<h1> MOVIE SITE </h1>
+
+<table border="1" class="movie-table">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
-            <th>Rating</th>
-            <th>Release Year</th>
-            <th>Genre</th>
+            <th colspan="2">Name</th>
+            <th>Poster</th>
         </tr>
     </thead>
     <tbody>
@@ -20,12 +20,14 @@
         {
             <tr>
                 <td>@movie.Id</td>
-                <td ><a href = "/movies/getmovie/@movie.Id" > @movie.Name </a></td>
-                <td>@movie.Rating</td>
-                <td>@movie.ReleaseYear</td>
-                <td>@movie.Genre</td>
+                <td colspan="2">@movie.Name</td>
+                <td style="vertical-align: middle;"><a href="/movies/getmovie/@movie.Id">
+                    @if (!string.IsNullOrEmpty(@movie.ImagePath))
+                    {
+                        <img src="@movie.ImagePath" alt="Harry Potter" class="path-image" />
+                    }
+                </a></td>
             </tr>
         }
     </tbody>
 </table>
-
